@@ -1,0 +1,11 @@
+.messages{
+  overflow: auto;
+  flex: auto;
+  height: 50vh;
+  /* display: flex;
+  scroll-behavior: smooth;
+  /* scroll-margin: 10px; */
+  /* scrollbar-color: pink;
+  scrollbar-width: 0;
+  scroll-behavior: unset; */
+}

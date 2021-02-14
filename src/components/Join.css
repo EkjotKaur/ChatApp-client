@@ -1,0 +1,35 @@
+.joinInnerInnerContainer{
+  background-color: #222223;
+  padding: 20px;
+  color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.joinInput{
+  background: inherit;
+  outline: none;
+  border: 1px solid white;
+  height: 40px;
+  margin: 10px 0;
+  padding: 2px 10px;
+  width: 100%;
+  font-size: 1.2rem;
+  border-radius: 5x;
+  color: white;
+}
+.button{
+  background: #771100;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  /* margin: auto; */
+  margin: 10px 0;
+}
+a{
+  color: inherit;
+  text-decoration: inherit;
+}

@@ -1,3 +1,19 @@
+.infoBar{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #8888;
+}
 .rightInnerContainer{
-  background-color: blue;
+  display: flex;
+  height: 100%;
+}
+.rightInnerContainer i{
+  margin: 0 15px 0 0;
+}
+.rightInnerContainer a{
+  margin: 0 0 0 15px;
+}
+.rightInnerContainer div{
+  cursor: pointer;
 }

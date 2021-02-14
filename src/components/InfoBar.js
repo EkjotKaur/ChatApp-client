@@ -5,14 +5,18 @@ import onlineIcon from '../icon/onlineIcon.png';
 
 import './InfoBar.css'
 
-const InfoBar = ({room}) => (
+const InfoBar = ({room, onClick}) => (
     <div className="infoBar">
     <div className="leftInnerContainer">
-      <img className="onlineIcon" src={onlineIcon} alt="online img" />
       <h3>{room}</h3>
     </div>
     <div className="rightInnerContainer">
-      <a href="/"><img src={closeIcon} alt="close img" /> </a>
+      <div onClick={onClick}>
+        <i className="fas fa-info"></i>
+      </div>
+      <div>
+        <a href="/">Leave</a>
+      </div>      
     </div>
   </div>
 

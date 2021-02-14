@@ -1,0 +1,19 @@
+.input{
+  width: calc(100% - 60px); 
+  /* margin: 0 5px; */
+  height: 40px;
+  border-bottom-left-radius: 20px;
+  /* border-bottom-right-radius: 5px; */
+  outline: 0;
+}
+.sendButton{
+  /* font-size: 1.1rem; */
+  padding: 5px 10px;
+  height: 40px;
+  width: 60px;
+  border: 0;
+  outline: 0;
+  background-color: #444444;
+  color: white;
+  border-bottom-right-radius: 20px;
+}

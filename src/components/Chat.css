@@ -1,0 +1,24 @@
+.outerContainer{
+  height: 70vh;
+  background: #222223;
+  color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.innerContainer{
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+.chatBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
