@@ -1,10 +1,11 @@
 import React from "react";
 
-const TextContainer = ({users }) => (
-  <div>
-    {users ? (users.map(({name}) => (
-      <div>{name}</div>
-    ))) : (null)}
+import './TextContainer.css';
+
+const TextContainer = ({ users }) => (
+  <div className="users">
+    <h3 className="head">USERS</h3>
+    {users ? users.map(({ name }, i) => <div className="user"  key={i}><i class="fas fa-user"></i>{name}</div>) : null}
   </div>
 );
 

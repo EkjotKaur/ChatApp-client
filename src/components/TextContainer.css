@@ -1,0 +1,18 @@
+.users{
+  color: white;
+  padding: 10px;
+}
+.head{
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+}
+.user{
+  padding: 5px 20px ;
+  font-size: 1.1rem;
+}
+.user i{
+  padding-right: 10px;
+  color: #771100;
+  text-shadow: -0.5px -0.5px #fff;
+  font-size: 1.2rem;
+}

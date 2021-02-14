@@ -1,0 +1,40 @@
+.message{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+}
+.innerMessageContainer{
+  width: fit-content;
+  background: pink;
+  max-width: 80%;
+  border-radius: 5px;
+  /* padding: 3px 5px; */
+}
+.myMessageInner{
+  background: #bbb;
+  margin-right: 5px;
+  color: black;
+}
+.otherMessageInner{
+  background: rgb(65, 65, 65);
+  margin-left: 5px;
+}
+.name{
+  background: #771100;
+  font-weight: 700;
+  color: white;
+  padding: 3px 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.para{
+  /* max-width: 80%; */
+  padding: 3px 5px;
+  width: fit-content;
+  word-wrap: break-word;
+  margin: 0!important;
+}
+.myMessage{
+  align-items: flex-end;
+}

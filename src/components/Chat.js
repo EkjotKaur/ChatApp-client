@@ -6,6 +6,8 @@ import Input from "./Input";
 import Messages from "./Messages";
 import TextContainer from "./TextContainer";
 
+import './Chat.css';
+
 let socket;
 
 const Chat = ({ location }) => {
@@ -15,6 +17,8 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState('');
   const ENDPOINT = "http://localhost:5000/";
+
+  const [info, setInfo] = useState(false);
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -33,18 +37,25 @@ const Chat = ({ location }) => {
     socket.on("message", (message) => {
       setMessages([...messages, message]);
     });
+
+    socket.on("roomData", ({users}) => {
+      setUsers(users);
+    });
+
     return () => {
       socket.off()
     }
     
   }, [messages]);
 
-  useEffect(() => {
-    socket.on("roomData", ({users}) => {
-      setUsers(users);
-    });
-  },[users])
+  // useEffect(() => {
+   
+  // },[])
 
+
+  const infoHandler = () => {
+    setInfo(prevI => !prevI);
+  }
 
   const sendMessage = (event) => {
     event.preventDefault();
@@ -55,19 +66,29 @@ const Chat = ({ location }) => {
   };
 
   console.log(message, messages);
+  console.log(users);
 
   return (
     <div className="outerContainer">
       <div className="innerContainer">
-        <InfoBar room={room} />
-        <Messages messages={messages} name={name} />
-        <Input
-          message={message}
-          setMessage={setMessage}
-          sendMessage={sendMessage}
-        />
+        <InfoBar room={room} onClick={infoHandler} />
+        {!info && (
+          <div className="chatBox">
+          <Messages messages={messages} name={name} />
+          <Input
+            message={message}
+            setMessage={setMessage}
+            sendMessage={sendMessage}
+          />
+        </div>
+        )}
+        { info && (
+          <div>
+            <TextContainer users={users} />
+          </div>
+        )}
       </div>
-      <TextContainer users={users} />
+     
     </div>
   );
 };
