@@ -28,8 +28,12 @@
   border: none;
   /* margin: auto; */
   margin: 10px 0;
+  outline: none;
 }
 a{
   color: inherit;
   text-decoration: inherit;
+}
+.button-link{
+  width: 100%!important;
 }
