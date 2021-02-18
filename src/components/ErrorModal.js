@@ -7,6 +7,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link } from 'react-router-dom';
 
+import './ErrorModal.css';
+
 const ErrorModal = ({heading, message, onClick}) =>  {
   const [open, setOpen] = React.useState(true);
 
@@ -28,19 +30,17 @@ const ErrorModal = ({heading, message, onClick}) =>  {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        className="modal"
       >
-        <DialogTitle id="alert-dialog-title">{heading}</DialogTitle>
+        <DialogTitle id="alert-dialog-title" className="title">{heading}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id="alert-dialog-description" className="text-error">
           {message}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button color="primary" autoFocus onClick={onClick}>
-            <Link to="/">Okay</Link>
+          <Button color="primary" autoFocus onClick={onClick} >
+            <Link className="error-btn" to="/">Okay</Link>
           </Button>
         </DialogActions>
       </Dialog>

@@ -1,0 +1,19 @@
+.modal{
+  width: 60%;
+  margin: auto;
+}
+.MuiDialog-paperWidthSm{
+  max-width: 600px;
+  width: 60%;
+}
+.title{
+  background-color: #771100;
+  color: #fff;
+}
+.text-error{
+  padding-top: 20px;
+  color: #111;
+}
+.error-btn{
+  color: #771100;
+}

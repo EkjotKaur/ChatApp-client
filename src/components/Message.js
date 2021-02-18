@@ -6,7 +6,7 @@ import './Message.css';
 
 const Message = ({message: {user, text}, name}) => {
   let isSentByCurrentuser = false;
-  const trimmedName = name.trim().toLowerCase();
+  const trimmedName = name;
 
   if(user === trimmedName) {
     isSentByCurrentuser = true;

@@ -8,6 +8,8 @@ import TextContainer from "./TextContainer";
 
 import "./Chat.css";
 import ErrorModal from "./ErrorModal";
+import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 let socket;
 
@@ -39,11 +41,15 @@ const Chat = ({ location }) => {
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
-    socket.on("message", (message) => {
-      setMessages([...messages, message]);
-    }, (err) => {
-      setError(err);
-    });
+    socket.on(
+      "message",
+      (message) => {
+        setMessages([...messages, message]);
+      },
+      (err) => {
+        setError(err);
+      }
+    );
 
     socket.on("roomData", ({ users }) => {
       setUsers(users);
@@ -86,28 +92,44 @@ const Chat = ({ location }) => {
           onClick={clearError}
         />
       )}
-      {!error && (
-        <div className="outerContainer">
-          <div className="innerContainer">
-            <InfoBar room={room} onClick={infoHandler} />
-            {!info && (
-              <div className="chatBox">
-                <Messages messages={messages} name={name} />
-                <Input
-                  message={message}
-                  setMessage={setMessage}
-                  sendMessage={sendMessage}
-                />
+
+      <div className="outerContainer">
+        <div className="innerContainer">
+          {error && (
+            <div>
+              <div className="error-heading">Error Occured!</div>
+              <div className="error-message">{error}! You need to go back.</div>
+              <div className="error">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href="/"
+                  size="large"
+                  className="error-button"
+                >
+                  Go Back to the page
+                </Button>
               </div>
-            )}
-            {info && (
-              <div>
-                <TextContainer users={users} />
-              </div>
-            )}
-          </div>
+            </div>
+          )}
+          {!error && <InfoBar room={room} onClick={infoHandler} />}
+          {!error && !info && (
+            <div className="chatBox">
+              <Messages messages={messages} name={name} />
+              <Input
+                message={message}
+                setMessage={setMessage}
+                sendMessage={sendMessage}
+              />
+            </div>
+          )}
+          {!error && info && (
+            <div>
+              <TextContainer users={users} />
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </React.Fragment>
   );
 };

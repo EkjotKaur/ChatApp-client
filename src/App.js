@@ -2,7 +2,7 @@
 // import './App.css';
 
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom'
 
 import './App.css';
 
@@ -17,6 +17,7 @@ const App = () => {
       <Router>
         <Route path="/" exact component={Join} />
         <Route path="/chat" component={Chat} />
+        <Redirect to="/"/>
       </Router>
     </div>
   </div>

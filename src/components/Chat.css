@@ -22,3 +22,32 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+.error-heading{
+  font-size: 2.2rem;
+  color: #771100;
+  font-weight: 900;
+  text-align: center;
+  padding: 50px;
+  text-shadow: .3px .3px #fff;
+}
+.error{
+  width: fit-content;
+  padding: 20px;
+  margin: auto;
+}
+.error-button{
+  margin: auto;
+  /* width: 100%; */
+  margin: 20px;
+  background-color: #771100!important;
+  font-size: 1.1rem;
+  padding: 30px;
+  font-weight: 500;
+  top: 20vh;
+}
+.error-message{
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 1.3rem;
+}
