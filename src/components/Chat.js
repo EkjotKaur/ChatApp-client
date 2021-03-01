@@ -19,11 +19,12 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState("");
-  const ENDPOINT = "https://react-app-chit-chat.herokuapp.com/";
-  // const ENDPOINT = "http://localhost:5000/";
+  // const ENDPOINT = "https://react-app-chit-chat.herokuapp.com/";
+  const ENDPOINT = "http://localhost:5000/";
 
   const [info, setInfo] = useState(false);
   const [error, setError] = useState();
+  const [socketOn, setSocketOn] = useState(true);
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -31,12 +32,23 @@ const Chat = ({ location }) => {
     socket = io(ENDPOINT);
     console.log(socket);
 
+    // console.log(socket.status);
+    // console.log(socket.connection);
+    console.log(socket.disconnected);
+    console.log(socket.connected);
+    // console.log(socket.id);
+    console.log(socket);
+
     setRoom(room);
     setName(name);
     // console.log(room, name);
 
     socket.emit("join", { name, room }, (err) => {
+      
       setError(err);
+
+      if(socket.id) setSocketOn(true);
+      else setSocketOn(false);
     });
   }, [ENDPOINT, location.search]);
 
@@ -88,10 +100,10 @@ const Chat = ({ location }) => {
 
   return (
     <React.Fragment>
-      {error && (
+      {(error || !socketOn) && (
         <ErrorModal
           heading="Some Error Occured"
-          message={error}
+          message={(error || "Can't connect to the room.") + " Please try again."}
           onClick={clearError}
         />
       )}
